@@ -25,11 +25,7 @@ public class PersonaServiceImpl implements PersonaService {
 
     @Override
     public PersonaOutputDTO addPersona(PersonaInputDTO personaInputDTO) throws UnprocesableException {
-        try {
             return mapper.toDTO(repository.save(mapper.toEntity(personaInputDTO)));
-        } catch (ConstraintViolationException e) {
-            throw new UnprocesableException(e.getMessage());
-        }
     }
 
     @Override
